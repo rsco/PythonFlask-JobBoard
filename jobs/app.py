@@ -18,9 +18,9 @@ def execute_sql(sql, values=(), commit=False, single=False):
     if commit == True:
        results = connection.commit()
    else:
-        results = cursor.fetchone() if single else cursor.fetchball()
+        results = cursor.fetchone() if single else cursor.fetchall()
 
-    cursor.close();
+    cursor.close()
     return results
 
 @app.teardown_appcontext
